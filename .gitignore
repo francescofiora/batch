@@ -1,0 +1,9 @@
+.project
+bin
+build
+.classpath
+.gradle
+.settings
+logs
+/gradle/
+.gitattributes

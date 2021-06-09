@@ -1,0 +1,31 @@
+version: '3'
+services:
+
+  batch-activemq:
+    image: artemis-debian
+    environment:
+      ARTEMIS_USER: artemis
+      ARTEMIS_PASSWORD: artemis
+      ANONYMOUS_LOGIN: "false"
+      EXTRA_ARGS: "--http-host batch-activemq --relax-jolokia"
+    ports:
+      - "61616:61616"
+      - "8161:8161"
+
+  batch-mariadb:
+    image: mariadb:10.5.9
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+    volumes:
+      - "./mariadb:/docker-entrypoint-initdb.d"
+    ports:
+      - "3306:3306"
+   
+  batch-myadmin:
+    image: phpmyadmin/phpmyadmin:5.0.2
+    environment:
+      - PMA_HOST=batch-mariadb
+      - PMA_USER=root
+      - PMA_PASSWORD=secret
+    ports:
+      - "8080:80"

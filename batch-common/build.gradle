@@ -1,0 +1,19 @@
+plugins {
+  id 'java-library'
+  id 'info.solidsoft.pitest' version '1.5.1'
+}
+
+def unit_test_version = parent.property('unit-test.version')
+def assertj_version = parent.property('assertj.version')
+
+dependencies {
+
+  testImplementation "org.junit.jupiter:junit-jupiter-api:${unit_test_version}"
+  testImplementation "org.junit.jupiter:junit-jupiter-engine:${unit_test_version}"
+  testImplementation "org.assertj:assertj-core:${assertj_version}"
+}
+
+pitest {
+  timestampedReports = false
+  junit5PluginVersion = '0.12'
+}

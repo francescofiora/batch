@@ -1,0 +1,8 @@
+rootProject.name = 'batch'
+
+include 'batch-common'
+include 'batch-message'
+include 'batch-api-dto'
+include 'batch-api'
+include 'batch-executor-dto'
+include 'batch-executor'
