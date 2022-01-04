@@ -19,14 +19,19 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
+/**
+ * Task Entity.
+ */
 @Getter
 @Setter
 @Entity
 @Table(name = "task")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@ToString(callSuper = true, includeFieldNames = true)
 public class Task extends AbstractDomain implements Serializable {
 
   private static final long serialVersionUID = 1L;
@@ -107,13 +112,4 @@ public class Task extends AbstractDomain implements Serializable {
     this.result = result;
     return this;
   }
-
-  @Override
-  public String toString() {
-    return "Task [id=" + getId() + ", jmsMessageId=" + getJmsMessageId() + ", jobName="
-        + getJobName() + ", taskType=" + getTaskType() + ", messageCreated=" + getMessageCreated()
-        + ", taskRef=" + getTaskRef() + ", status=" + getStatus() + ", result = " + getResult()
-        + "]";
-  }
-
 }

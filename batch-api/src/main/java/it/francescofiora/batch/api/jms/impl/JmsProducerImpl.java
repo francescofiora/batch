@@ -2,16 +2,17 @@ package it.francescofiora.batch.api.jms.impl;
 
 import it.francescofiora.batch.api.jms.JmsProducer;
 import it.francescofiora.batch.message.MessageDtoRequest;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Component;
 
+/**
+ * Jms Producer Impl.
+ */
+@Slf4j
 @Component
 public class JmsProducerImpl implements JmsProducer {
-
-  private final Logger log = LoggerFactory.getLogger(this.getClass().getName());
 
   @Value("${activemq.queue.request:QUEUE_REQUEST}")
   private String destination;

@@ -16,9 +16,11 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
+@ToString(callSuper = true, includeFieldNames = true)
 public class TaskExecutorDto implements Serializable, DtoIdentifier {
 
   private static final long serialVersionUID = 1L;
@@ -78,10 +80,5 @@ public class TaskExecutorDto implements Serializable, DtoIdentifier {
   @Override
   public int hashCode() {
     return Objects.hashCode(getId());
-  }
-
-  @Override
-  public String toString() {
-    return "TaskDto{id='" + getId() + "', task='" + getTask() + "', status='" + getStatus() + "'}";
   }
 }

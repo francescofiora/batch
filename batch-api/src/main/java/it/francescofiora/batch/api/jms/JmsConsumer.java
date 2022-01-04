@@ -1,15 +1,16 @@
 package it.francescofiora.batch.api.jms;
 
 import it.francescofiora.batch.api.jms.message.JmsMessage;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Component;
 
+/**
+ * Jms Consumer.
+ */
+@Slf4j
 @Component
 public class JmsConsumer {
-
-  private final Logger log = LoggerFactory.getLogger(this.getClass().getName());
 
   private final JmsValidator validator;
 
@@ -17,7 +18,7 @@ public class JmsConsumer {
 
   /**
    * Constructor.
-   * 
+   *
    * @param validator       JmsValidator
    * @param strategyManager StrategyManager
    */
@@ -28,7 +29,7 @@ public class JmsConsumer {
 
   /**
    * Jms Listener.
-   * 
+   *
    * @param obj Object
    */
   @JmsListener(destination = "${activemq.queue.response:QUEUE_RESPONSE}")
