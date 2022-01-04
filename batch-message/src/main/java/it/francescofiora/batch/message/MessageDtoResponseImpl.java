@@ -7,9 +7,11 @@ import java.util.Objects;
 import javax.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
+@ToString(callSuper = true, includeFieldNames = true)
 public final class MessageDtoResponseImpl extends AbstractMessageDto
     implements MessageDtoResponse, Serializable {
 
@@ -56,11 +58,5 @@ public final class MessageDtoResponseImpl extends AbstractMessageDto
   @Override
   public int hashCode() {
     return Objects.hashCode(getTaskId());
-  }
-
-  @Override
-  public String toString() {
-    return "MessageDtoResponseImpl {status=" + getStatus() + ", result=" + getResult() + ", type="
-        + getType() + ", taskId=" + getTaskId() + "}";
   }
 }

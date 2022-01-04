@@ -13,6 +13,7 @@ import it.francescofiora.batch.common.enumeration.TaskType;
 import it.francescofiora.batch.util.DtoEqualsTester;
 import it.francescofiora.batch.util.TestUtils;
 import java.util.Collections;
+import java.util.Map;
 import org.junit.jupiter.api.Test;
 
 public class MessageDtoRequestImplTest {
@@ -81,9 +82,9 @@ public class MessageDtoRequestImplTest {
     // @formatter:off
     MessageDtoRequest request = new MessageDtoRequestImpl()
         .addParameters(null)
-        .addParameters(Collections.singletonMap(KEY, VALUE))
+        .addParameters(Map.of(KEY, VALUE))
         .addParameters(Collections.emptyMap())
-        .addParameters(Collections.singletonMap(KEY2, VALUE2));
+        .addParameters(Map.of(KEY2, VALUE2));
     // @formatter:on
 
     // @formatter:off
