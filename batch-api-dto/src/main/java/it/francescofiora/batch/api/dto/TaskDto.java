@@ -11,9 +11,11 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
+@ToString(callSuper = true, includeFieldNames = true)
 public class TaskDto extends NewTaskDto implements Serializable, DtoIdentifier {
 
   private static final long serialVersionUID = 1L;
@@ -42,11 +44,5 @@ public class TaskDto extends NewTaskDto implements Serializable, DtoIdentifier {
   @Override
   public int hashCode() {
     return Objects.hashCode(getId());
-  }
-
-  @Override
-  public String toString() {
-    return "TaskDto{id='" + getId() + "', description='" + getDescription() + "', type='"
-        + getType() + "', status='" + getStatus() + "'}";
   }
 }

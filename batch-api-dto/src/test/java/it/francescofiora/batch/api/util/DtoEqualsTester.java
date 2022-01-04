@@ -7,6 +7,9 @@ import com.openpojo.reflection.PojoClass;
 import com.openpojo.validation.rule.Rule;
 import it.francescofiora.batch.common.dto.DtoIdentifier;
 
+/**
+ * Dto Equals Tester Rule.
+ */
 public class DtoEqualsTester implements Rule {
 
   @Override
