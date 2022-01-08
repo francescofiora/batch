@@ -15,19 +15,20 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+/**
+ * Task Service Impl.
+ */
+@Slf4j
 @Service
 @Transactional
 public class TaskServiceImpl implements TaskService {
-
-  private final Logger log = LoggerFactory.getLogger(this.getClass());
 
   private final TaskMapper taskMapper;
 

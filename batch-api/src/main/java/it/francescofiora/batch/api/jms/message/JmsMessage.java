@@ -2,27 +2,21 @@ package it.francescofiora.batch.api.jms.message;
 
 import it.francescofiora.batch.message.MessageDtoResponse;
 import java.util.Objects;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.ToString;
 
+/**
+ * Jms Message.
+ */
 @Getter
+@AllArgsConstructor
+@ToString(callSuper = true, includeFieldNames = true)
 public final class JmsMessage {
 
   private final MessageDtoResponse response;
   private final String jmsMessageId;
   private final Long timestamp;
-
-  /**
-   * Constructor.
-   * 
-   * @param response     MessageDtoResponse
-   * @param jmsMessageId String
-   * @param timestamp    long
-   */
-  public JmsMessage(MessageDtoResponse response, String jmsMessageId, Long timestamp) {
-    this.response = response;
-    this.jmsMessageId = jmsMessageId;
-    this.timestamp = timestamp;
-  }
 
   @Override
   public int hashCode() {
@@ -38,11 +32,5 @@ public final class JmsMessage {
       return false;
     }
     return Objects.equals(getJmsMessageId(), ((JmsMessage) obj).getJmsMessageId());
-  }
-
-  @Override
-  public String toString() {
-    return "JmsMessage {response=" + getResponse() + ", jmsMessageId=" + getJmsMessageId()
-        + ", timestamp=" + getTimestamp() + "}";
   }
 }
