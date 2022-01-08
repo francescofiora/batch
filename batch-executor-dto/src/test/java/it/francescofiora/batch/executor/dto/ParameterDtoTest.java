@@ -1,9 +1,11 @@
 package it.francescofiora.batch.executor.dto;
 
 import it.francescofiora.batch.executor.util.TestUtils;
-
 import org.junit.jupiter.api.Test;
 
+/**
+ * ParameterDto Test.
+ */
 public class ParameterDtoTest {
 
   @Test
