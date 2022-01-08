@@ -1,5 +1,8 @@
 package it.francescofiora.batch.executor.tasklet;
 
+/**
+ * Jms Parameters.
+ */
 public final class JmsParameters {
 
   private JmsParameters() {

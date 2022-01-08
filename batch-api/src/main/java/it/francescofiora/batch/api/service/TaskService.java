@@ -46,13 +46,14 @@ public interface TaskService {
 
   /**
    * Delete the "id" task.
-   * 
+   *
    * @param id the id of the entity.
    */
   void delete(Long id);
 
   /**
-   * handle response.
+   * Handle response.
+   *
    * @param response MessageDtoResponse
    */
   void response(MessageDtoResponse response);

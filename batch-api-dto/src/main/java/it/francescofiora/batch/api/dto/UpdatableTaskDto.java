@@ -12,6 +12,9 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+/**
+ * Updatable Task Dto.
+ */
 @Getter
 @Setter
 @ToString(callSuper = true, includeFieldNames = true)

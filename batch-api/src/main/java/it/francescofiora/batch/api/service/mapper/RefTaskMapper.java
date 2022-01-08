@@ -5,6 +5,9 @@ import it.francescofiora.batch.api.dto.RefTaskDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
+/**
+ * Ref Task Mapper.
+ */
 @Mapper(componentModel = "spring")
 public interface RefTaskMapper {
 

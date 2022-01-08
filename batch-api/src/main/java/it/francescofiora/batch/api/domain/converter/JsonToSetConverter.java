@@ -10,6 +10,9 @@ import java.util.Set;
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
 
+/**
+ * Json to Set Converter.
+ */
 @Converter
 public class JsonToSetConverter implements AttributeConverter<Set<Parameter>, String> {
 

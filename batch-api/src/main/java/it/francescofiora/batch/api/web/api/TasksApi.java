@@ -28,6 +28,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * Tasks Api.
+ */
 @Slf4j
 @RestController
 @Tag(name = "task", description = "Task Rest API")

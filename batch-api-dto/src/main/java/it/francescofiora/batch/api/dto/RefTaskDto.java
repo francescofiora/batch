@@ -11,6 +11,9 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+/**
+ * Ref Task Dto.
+ */
 @Getter
 @Setter
 @ToString(callSuper = true, includeFieldNames = true)

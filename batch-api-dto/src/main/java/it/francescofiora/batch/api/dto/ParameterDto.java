@@ -9,6 +9,9 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+/**
+ * Parameter Dto.
+ */
 @Getter
 @Setter
 @ToString(callSuper = true, includeFieldNames = true)

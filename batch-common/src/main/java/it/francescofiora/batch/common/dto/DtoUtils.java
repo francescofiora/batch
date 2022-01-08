@@ -2,6 +2,9 @@ package it.francescofiora.batch.common.dto;
 
 import java.util.Objects;
 
+/**
+ * Dto Utils.
+ */
 public interface DtoUtils {
 
   /**

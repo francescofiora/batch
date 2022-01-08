@@ -15,6 +15,9 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+/**
+ * New Task Dto.
+ */
 @Getter
 @Setter
 @ToString(callSuper = true, includeFieldNames = true)

@@ -10,6 +10,9 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+/**
+ * Message Dto Request Impl.
+ */
 @Getter
 @Setter
 @ToString(callSuper = true, includeFieldNames = true)

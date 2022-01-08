@@ -15,6 +15,9 @@ import it.francescofiora.batch.util.DtoEqualsTester;
 import it.francescofiora.batch.util.TestUtils;
 import org.junit.jupiter.api.Test;
 
+/**
+ * MessageDtoResponseImpl Test.
+ */
 public class MessageDtoResponseImplTest {
 
   private static final Long ID = 1L;

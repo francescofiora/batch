@@ -3,12 +3,15 @@ package it.francescofiora.batch.executor.service;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+/**
+ * Schedulated Task.
+ */
 @Component
-public class ScheduladedTask {
+public class SchedulatedTask {
 
   private final TaskService taskService;
 
-  public ScheduladedTask(TaskService taskService) {
+  public SchedulatedTask(TaskService taskService) {
     super();
     this.taskService = taskService;
   }

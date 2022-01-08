@@ -16,6 +16,9 @@ import java.util.Collections;
 import java.util.Map;
 import org.junit.jupiter.api.Test;
 
+/**
+ * MessageDtoRequestImpl Test.
+ */
 public class MessageDtoRequestImplTest {
 
   private static final String KEY = "Key";
@@ -49,9 +52,7 @@ public class MessageDtoRequestImplTest {
 
     assertThat(request2.getTaskId()).isEqualTo(ID);
     assertThat(request2.getType()).isEqualTo(TASK_TYPE);
-    assertThat(request2.getParameters())
-      .hasSize(1)
-      .containsEntry(KEY, VALUE);
+    assertThat(request2.getParameters()).hasSize(1).containsEntry(KEY, VALUE);
   }
 
   private MessageDtoRequestImpl buildRequest(Long taskId, TaskType type, String parKey,
@@ -89,9 +90,9 @@ public class MessageDtoRequestImplTest {
 
     // @formatter:off
     assertThat(request.getParameters())
-      .hasSize(2)
-      .containsEntry(KEY, VALUE)
-      .containsEntry(KEY2, VALUE2);
+        .hasSize(2)
+        .containsEntry(KEY, VALUE)
+        .containsEntry(KEY2, VALUE2);
     // @formatter:on
   }
 }

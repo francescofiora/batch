@@ -7,6 +7,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 
+/**
+ * Custom Task Repository Impl.
+ */
 @Repository
 public class CustomTaskRepositoryImpl implements CustomTaskRepository {
 
