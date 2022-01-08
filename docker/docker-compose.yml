@@ -13,7 +13,7 @@ services:
       - "8161:8161"
 
   batch-mariadb:
-    image: mariadb:10.5.9
+    image: mariadb:10.6.5
     environment:
       MYSQL_ROOT_PASSWORD: secret
     volumes:
@@ -22,7 +22,7 @@ services:
       - "3306:3306"
    
   batch-myadmin:
-    image: phpmyadmin/phpmyadmin:5.0.2
+    image: phpmyadmin/phpmyadmin:5.1.1
     environment:
       - PMA_HOST=batch-mariadb
       - PMA_USER=root

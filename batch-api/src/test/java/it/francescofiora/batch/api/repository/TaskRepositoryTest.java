@@ -1,6 +1,7 @@
 package it.francescofiora.batch.api.repository;
 
 import static org.assertj.core.api.Assertions.assertThat;
+
 import it.francescofiora.batch.api.domain.Task;
 import it.francescofiora.batch.api.util.TestUtils;
 import java.util.Optional;
@@ -36,6 +37,7 @@ class TaskRepositoryTest extends AbstractTestRepository {
     task.setResult(expected3.getResult());
     task.setStatus(expected3.getStatus());
     task.setType(expected3.getType());
+    task.setParameters(expected3.getParameters());
     task = taskRepository.save(task);
 
     Optional<Task> optional = taskRepository.findById(task.getId());

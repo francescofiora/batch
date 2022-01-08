@@ -1,6 +1,7 @@
 package it.francescofiora.batch.api.util;
 
 import static org.assertj.core.api.Assertions.assertThat;
+
 import it.francescofiora.batch.api.domain.Parameter;
 import it.francescofiora.batch.api.domain.Task;
 import it.francescofiora.batch.api.dto.NewTaskDto;
@@ -12,7 +13,6 @@ import it.francescofiora.batch.message.MessageDtoRequest;
 import it.francescofiora.batch.message.MessageDtoRequestImpl;
 import it.francescofiora.batch.message.MessageDtoResponse;
 import it.francescofiora.batch.message.MessageDtoResponseImpl;
-import java.util.Collections;
 
 /**
  * Utility for testing.
@@ -80,6 +80,7 @@ public interface TestUtils {
     task.setDescription("first");
     task.setStatus(TaskStatus.SCHEDULATED);
     task.setType(TaskType.SHORT);
+    task.getParameters().add(createParameter("key", "value"));
     task.setResult("result 1");
     return task;
   }
@@ -152,7 +153,8 @@ public interface TestUtils {
     return expected.getType().equals(actual.getType())
         && expected.getDescription().equals(actual.getDescription())
         && expected.getResult().equals(actual.getResult())
-        && expected.getStatus().equals(actual.getStatus());
+        && expected.getStatus().equals(actual.getStatus())
+        && expected.getParameters().equals(actual.getParameters());
   }
 
   /**

@@ -1,49 +1,38 @@
 package it.francescofiora.batch.api.domain;
 
-import it.francescofiora.batch.common.domain.AbstractDomain;
 import java.io.Serializable;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.util.Objects;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
+import lombok.ToString;
 
+/**
+ * Parameter Entity.
+ */
 @Getter
 @Setter
-@Entity
-@Table(name = "parameter")
-@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-public class Parameter extends AbstractDomain implements Serializable {
+@ToString(callSuper = true, includeFieldNames = true)
+public class Parameter implements Serializable {
 
   private static final long serialVersionUID = 1L;
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
-
-  @Column(name = "name", nullable = false)
   private String name;
 
-  @Column(name = "value", nullable = false)
   private String value;
 
-  public Parameter name(String name) {
-    this.name = name;
-    return this;
-  }
-
-  public Parameter value(String value) {
-    this.value = value;
-    return this;
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj) {
+      return true;
+    }
+    if (getName() == null || obj == null || getClass() != obj.getClass()) {
+      return false;
+    }
+    return Objects.equals(getName(), ((Parameter) obj).getName());
   }
 
   @Override
-  public String toString() {
-    return "Parameter {id=" + getId() + ", name='" + getName() + "', value='" + getValue() + "'}";
+  public int hashCode() {
+    return Objects.hashCode(getName());
   }
 }

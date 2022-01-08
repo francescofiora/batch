@@ -50,27 +50,14 @@ CREATE DATABASE IF NOT EXISTS `batch_api` DEFAULT CHARACTER SET utf8mb4 COLLATE 
 
 USE `batch_api`;
 
-CREATE TABLE `parameter` (
-    `id` bigint(20) NOT NULL AUTO_INCREMENT,
-    `name` varchar(255) NOT NULL,
-    `value` varchar(255) NOT NULL,
-    PRIMARY KEY (`id`)
-) ENGINE=InnoDB;
-
 CREATE TABLE `task` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `description` varchar(255) NOT NULL,
+  `parameters` longtext DEFAULT NULL,
   `result` varchar(255) DEFAULT NULL,
   `status` varchar(25) NOT NULL,
   `task_type` int(11) NOT NULL,
-   PRIMARY KEY (id)
-) ENGINE=InnoDB;
-
-CREATE TABLE `task_parameter` (
-  `task_id` bigint(20) NOT NULL,
-  `parameter_id` bigint(20) NOT NULL,
-   PRIMARY KEY (task_id, parameter_id),
-   KEY `PRK_task_parameter` (`parameter_id`)
+  PRIMARY KEY (id)
 ) ENGINE=InnoDB;
 
 CREATE TABLE `task_task` (
@@ -79,10 +66,6 @@ CREATE TABLE `task_task` (
   PRIMARY KEY (`task_id`,`dependency_id`),
   KEY `PRK_task_task` (`dependency_id`)
 ) ENGINE=InnoDB;
-
-ALTER TABLE `task_parameter`
-  ADD CONSTRAINT `FK1_task_parameter` FOREIGN KEY (`parameter_id`) REFERENCES `parameter` (`id`),
-  ADD CONSTRAINT `FK2_task_parameter` FOREIGN KEY (`task_id`) REFERENCES `task` (`id`);
 
 ALTER TABLE `task_task`
   ADD CONSTRAINT `FK1_task_task` FOREIGN KEY (`dependency_id`) REFERENCES `task` (`id`),

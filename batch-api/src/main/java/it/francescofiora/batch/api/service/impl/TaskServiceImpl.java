@@ -7,7 +7,6 @@ import it.francescofiora.batch.api.dto.TaskDto;
 import it.francescofiora.batch.api.dto.UpdatableTaskDto;
 import it.francescofiora.batch.api.jms.JmsProducer;
 import it.francescofiora.batch.api.jms.errors.JmsException;
-import it.francescofiora.batch.api.repository.ParameterRepository;
 import it.francescofiora.batch.api.repository.TaskRepository;
 import it.francescofiora.batch.api.service.TaskService;
 import it.francescofiora.batch.api.service.mapper.TaskMapper;
@@ -20,22 +19,21 @@ import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+/**
+ * Task Service Impl.
+ */
+@Slf4j
 @Service
 public class TaskServiceImpl implements TaskService {
-
-  private final Logger log = LoggerFactory.getLogger(this.getClass().getName());
 
   private static final String ENTITY_NAME = "TaskDto";
 
   private final TaskRepository taskRepository;
-
-  private final ParameterRepository parameterRepository;
 
   private final TaskMapper taskMapper;
 
@@ -45,16 +43,14 @@ public class TaskServiceImpl implements TaskService {
    * Constructor.
    *
    * @param taskRepository TaskRepository
-   * @param parameterRepository ParameterRepository
    * @param taskMapper TaskMapper
    * @param jmsProducer JmsProducer
    */
-  public TaskServiceImpl(TaskRepository taskRepository, ParameterRepository parameterRepository,
-      TaskMapper taskMapper, JmsProducer jmsProducer) {
+  public TaskServiceImpl(TaskRepository taskRepository, TaskMapper taskMapper,
+      JmsProducer jmsProducer) {
     this.taskRepository = taskRepository;
     this.taskMapper = taskMapper;
     this.jmsProducer = jmsProducer;
-    this.parameterRepository = parameterRepository;
   }
 
   @Override
@@ -75,7 +71,6 @@ public class TaskServiceImpl implements TaskService {
       }
     }
 
-    parameterRepository.saveAll(task.getParameters());
     task = taskRepository.save(task);
 
     send(task);
