@@ -1,13 +1,15 @@
 plugins {
-  id 'org.springframework.boot' version '2.5.0'
+  id 'org.springframework.boot' version '2.6.1'
   id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-  id 'info.solidsoft.pitest' version '1.5.1'
+  id 'info.solidsoft.pitest' version '1.7.0'
 }
 
 def springdoc_openapi_version = parent.property('springdoc-openapi.version')
 def mariadb_client_version = parent.property('mariadb_client.version')
 def mapstruct_version = parent.property('mapstruct.version')
 def lombok_version = parent.property('lombok.version')
+def logback_version = parent.property('logback.version')
+def log4j_version = parent.property('log4j.version')
 def openpojo_version = parent.property('openpojo.version')
 
 dependencies {
@@ -44,7 +46,7 @@ dependencies {
 }
 
 springBoot {
-    mainClassName = "it.francescofiora.batch.executor.Application"
+  mainClass.set("it.francescofiora.batch.executor.Application")
 }
 
 eclipse {
@@ -59,7 +61,7 @@ eclipse {
 
 pitest {
   timestampedReports = false
-  junit5PluginVersion = '0.12'
+  junit5PluginVersion = '0.15'
 }
 
 bootBuildImage {
